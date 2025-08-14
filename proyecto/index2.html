@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Turismo en Colombia</title>
+
+  <!-- Materialize CSS -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+  />
+
+  <!-- Tus estilos -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NavBar -->
+  <nav class="nav-wrapper" style="background-color: #003366;">
+    <div class="container">
+      <a href="/proyecto/index2.html" class="brand-logo">Turismo Colombia</a>
+      <a href="#" data-target="mobile-menu" class="sidenav-trigger">
+        <i class="material-icons">menu</i>
+      </a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="/proyecto/index2.html">INICIO</a></li>
+        <li><a href="/proyecto/destinos2.html">DESTINOS</a></li>
+        <li><a href="/proyecto/contacto2.html">CONTACTO</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Menú móvil -->
+  <ul class="sidenav" id="mobile-menu">
+    <li><a href="/proyecto/index2.html">INICIO</a></li>
+    <li><a href="/proyecto/destinos2.html">DESTINOS</a></li>
+    <li><a href="/proyecto/contacto2.html">CONTACTO</a></li>
+  </ul>
+
+  <!-- Hero -->
+  <section class="hero">
+    <h1>Turismo en Colombia</h1>
+    <p>Explora naturaleza, cultura y gastronomía cerca de ti</p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2023 Turismo en Colombia. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- Materialize JS -->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"
+  ></script>
+
+  <!-- Inicializar menú móvil -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('.sidenav');
+      M.Sidenav.init(elems);
+    });
+  </script>
+
+</body>
+</html>
