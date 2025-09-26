@@ -23,7 +23,7 @@ nav .container {
 
 /* ======== HERO ======== */
 .hero {
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/imagenes/parejita.jpg');
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/proy-turismo/imagenes/parejita.jpg');
     background-size: cover;
     background-position: center;
     height: 900px;
