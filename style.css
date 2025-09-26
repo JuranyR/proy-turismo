@@ -17,9 +17,13 @@ nav a {
     text-transform: uppercase;
 }
 
+nav .container {
+    width: 100%;
+}
+
 /* ======== HERO ======== */
 .hero {
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('./imagenes/parejita.jpg');
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../imagenes/parejita.jpg');
     background-size: cover;
     background-position: center;
     height: 900px;
@@ -64,6 +68,7 @@ nav a {
 }
 .card .card-content {
     flex-grow: 1;
+    min-height: 180px;
 }
 
 

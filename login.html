@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - Turismo Colombia</title>
+
+  <!-- Materialize CSS -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  />
+    <!-- Tus estilos -->
+  <link rel="stylesheet" href="styleLoginRegister.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- NavBar -->
+  <nav class="nav-wrapper" style="background-color: #003366;">
+    <div class="container">
+      <a href="./index2.html" class="brand-logo">Turismo Colombia</a>
+      <a href="#" data-target="mobile-menu" class="sidenav-trigger">
+        <i class="material-icons">menu</i>
+      </a>
+      <ul id="navbar" class="right hide-on-med-and-down">
+
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Menú móvil -->
+  <ul class="sidenav" id="mobile-menu">
+
+  </ul>
+  <div class="content">
+    <div class="login-container z-depth-3">
+      <h4>Iniciar Sesión</h4>
+      <form id="loginForm" novalidate>
+        <div class="input-field">
+          <input id="email" type="email" required />
+          <label for="email">Correo electrónico</label>
+        </div>
+
+        <div class="input-field">
+          <input id="password" type="password" required />
+          <label for="password">Contraseña</label>
+        </div>
+
+        <button type="submit" class="btn btn-custom waves-effect waves-light">Entrar</button>
+        <p class="error-msg" id="errorMsg"></p>
+      </form>
+
+      <p class="center-align" style="margin-top: 15px;">
+        ¿No tienes cuenta? <a href="./registro.html">Regístrate aquí</a>
+      </p>
+    </div>
+  </div>
+
+
+  <!-- Materialize JS -->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"
+  ></script>
+  <script src="js/navbar.js"></script>
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value.trim();
+      const errorMsg = document.getElementById('errorMsg');
+      errorMsg.textContent = '';
+
+      if (!email || !password) {
+        errorMsg.textContent = 'Por favor completa todos los campos';
+        return;
+      }
+
+      try {
+        const res = await fetch('https://api-proyecto-jsyx.onrender.com/api/auth/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ email, password })
+        });
+
+        const data = await res.json();
+
+        if (res.ok) {
+          // Guardar token y usuario en localStorage
+          localStorage.setItem('token', data.token);
+          localStorage.setItem('user', JSON.stringify(data.user));
+          // Redirigir a la página principal (index2.html)
+          window.location.href = './index2.html';
+        } else {
+          errorMsg.textContent = data.msg || 'Error en el login';
+        }
+      } catch (error) {
+        errorMsg.textContent = 'Error en la conexión con el servidor';
+      }
+    });
+  </script>
+</body>
+</html>

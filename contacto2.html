@@ -22,83 +22,93 @@
   <!-- NavBar -->
   <nav class="nav-wrapper" style="background-color: #003366;">
     <div class="container">
-      <a href="./index.html" class="brand-logo">Turismo Colombia</a>
+      <a href="./index2.html" class="brand-logo">Turismo Colombia</a>
       <a href="#" data-target="mobile-menu" class="sidenav-trigger">
         <i class="material-icons">menu</i>
       </a>
-      <ul class="right hide-on-med-and-down">
-         <li><a href="./index.html">INICIO</a></li>
-        <li><a href="./destinos2.html">DESTINOS</a></li>
-        <li><a href="./contacto2.html">CONTACTO</a></li>
+      <ul id="navbar" class="right hide-on-med-and-down">
       </ul>
     </div>
   </nav>
 
   <!-- Menú móvil -->
   <ul class="sidenav" id="mobile-menu">
-     <li><a href="./index.html">INICIO</a></li>
-    <li><a href="./destinos2.html">DESTINOS</a></li>
-    <li><a href="./contacto2.html">CONTACTO</a></li>
+
   </ul>
 
-  <!-- Sección de contacto -->
-  <section class="contacto">
-    <h2>¡Planea tu viaje!</h2>
-    <p>¿Listo para vivir la experiencia colombiana? Contáctanos para más información</p>
+  <div id="content" style="display: none;">
+    <!-- Sección de contacto -->
+    <section class="contacto">
+      <h2>¡Planea tu viaje!</h2>
+      <p>¿Listo para vivir la experiencia colombiana? Contáctanos para más información</p>
 
-    <!-- Formulario de contacto -->
-    <div class="container" style="margin-bottom: 50px;">
-      <form id="contactForm" class="card-panel grey lighten-4">
-        <div class="input-field">
-          <input id="name" type="text" required>
-          <label for="name">Nombre</label>
+      <!-- Formulario de contacto -->
+      <div class="container" style="margin-bottom: 50px;">
+        <form id="contactForm" class="card-panel grey lighten-4" novalidate>
+          <div class="input-field">
+            <input id="name" type="text" required>
+            <label for="name">Nombre</label>
+          </div>
+
+          <div class="input-field">
+            <input id="email" type="email" required>
+            <label for="email">Correo</label>
+          </div>
+
+          <div class="input-field">
+            <select id="mensaje" name="mensaje" required>
+              <option value="" disabled selected>-- Selecciona una opción --</option>
+              <option value="Reserva a Bogota">Reserva a Bogota</option>
+              <option value="Reserva a Cartagena">Reserva a Cartagena</option>
+              <option value="Reserva al Eje Cafetero">Reserva al Eje Cafetero</option>
+              <option value="Reserva a Medellín">Reserva a Medellín</option>
+            </select>
+            <label for="mensaje">Selecciona una opción</label>
+          </div>
+
+          <!-- Inicialización de selects de Materialize -->
+          <script>
+            document.addEventListener('DOMContentLoaded', function() {
+              var elems = document.querySelectorAll('select');
+              M.FormSelect.init(elems);
+            });
+          </script>  
+
+          <button class="btn waves-effect waves-light" type="submit" style="background-color: #003366;">
+            Enviar
+          </button>
+        </form>
+      </div>
+
+      <!-- Lista de agentes -->
+      <div class="agentes container">
+        <div class="agente card-panel">
+          <a href="https://wa.link/cc9rjo">+57 3013958199</a>
+          <p class="agente-nombre">Katherine Daniela Izquierdo Chavez</p>
         </div>
 
-        <div class="input-field">
-          <input id="email" type="email" required>
-          <label for="email">Correo</label>
+        <div class="agente card-panel">
+          <a href="https://wa.link/iqngda">+57 3154488976</a>
+          <p class="agente-nombre">Juan Sebastian Barreno Guerrero</p>
         </div>
 
-        <div class="input-field">
-          <textarea id="message" class="materialize-textarea" required></textarea>
-          <label for="message">Mensaje</label>
+        <div class="agente card-panel">
+          <a href="https://wa.link/xtoere">+57 3202413804</a>
+          <p class="agente-nombre">Jurany Adela Ramirez Pineda</p>
         </div>
 
-        <button class="btn waves-effect waves-light" type="submit" style="background-color: #003366;">
-          Enviar
-        </button>
-      </form>
-    </div>
-
-    <!-- Lista de agentes -->
-    <div class="agentes container">
-      <div class="agente card-panel">
-        <a href="https://wa.link/cc9rjo">+57 3013958199</a>
-        <p class="agente-nombre">Katherine Daniela Izquierdo Chavez</p>
+        <div class="agente card-panel">
+          <a href="https://wa.link/kdofri">+57 3222422016</a>
+          <p class="agente-nombre">Luis Alejandro Lopez Manosalva</p>
+        </div>
       </div>
-
-      <div class="agente card-panel">
-        <a href="https://wa.link/iqngda">+57 3154488976</a>
-        <p class="agente-nombre">Juan Sebastian Barreno Guerrero</p>
-      </div>
-
-      <div class="agente card-panel">
-        <a href="https://wa.link/xtoere">+57 3202413804</a>
-        <p class="agente-nombre">Jurany Adela Ramirez Pineda</p>
-      </div>
-
-      <div class="agente card-panel">
-        <a href="https://wa.link/kdofri">+57 3222422016</a>
-        <p class="agente-nombre">Luis Alejandro Lopez Manosalva</p>
-      </div>
-
-      <div class="agente card-panel">
-        <a href="https://wa.link/ufvhjz">+57 3207897014</a>
-        <p class="agente-nombre">Diana Katherin Sanchez Valderrama</p>
-      </div>
-    </div>
-  </section>
-
+    </section>
+  </div>
+  <!-- ❌ Mensaje si no está autenticado -->
+  <div id="noAuthMsg" style="display: none; padding: 50px; text-align: center; height: calc(100vh - 124px);">
+    <h4>⚠️ No autorizado</h4>
+    <p>Debes <a href="login.html">iniciar sesión</a> para acceder a esta sección.</p>
+  </div>
   <!-- Footer -->
   <footer class="center-align" style="background-color: #333; color: white; padding: 20px;">
     © 2023 Turismo en Colombia. Todos los derechos reservados.
@@ -108,7 +118,8 @@
   <script
     src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"
   ></script>
-
+  <script src="js/navbar.js"></script>
+   <script src="js/authCheck.js"></script>
   <!-- Inicializar menú móvil -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -117,19 +128,36 @@
     });
 
     // Validación del formulario
-    document.getElementById("contactForm").addEventListener("submit", function(e) {
+    document.getElementById("contactForm").addEventListener("submit", async  function(e) {
       e.preventDefault();
       const name = document.getElementById("name").value.trim();
       const email = document.getElementById("email").value.trim();
-      const message = document.getElementById("message").value.trim();
+      const message = document.getElementById("mensaje").value.trim();
 
       if (!name || !email || !message) {
         M.toast({html: 'Por favor completa todos los campos', classes: 'red'});
         return;
       }
 
-      M.toast({html: 'Formulario enviado con éxito 🚀', classes: 'green'});
-      this.reset();
+      try {
+        const res = await fetch("https://api-proyecto-jsyx.onrender.com/api/contact", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ name, email, message })
+        });
+
+        const data = await res.json();
+
+        if (!res.ok) throw new Error(data.msg || "Error al enviar");
+
+        M.toast({html: 'Formulario enviado con éxito 🚀', classes: 'green'});
+        this.reset();
+      } catch (err) {
+        console.error("Error:", err);
+        M.toast({html: 'Error al enviar formulario', classes: 'red'});
+      }
     });
   </script>
 
