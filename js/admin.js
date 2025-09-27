@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   window.editProduct = async (id) => {
     try {
-      clearImagePreview();
+      // clearImagePreview();
       const res = await fetch(`${API_URL}/${id}`);
       const product = await res.json();
 
@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   };
 
   btnAdd.addEventListener('click', () => {
-    clearImagePreview();
+    // clearImagePreview();
     isEditing = false;
     form.reset();
     document.getElementById('productId').value = '';
